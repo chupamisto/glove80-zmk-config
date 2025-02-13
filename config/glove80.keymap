@@ -104,23 +104,23 @@
 
         NavFN {
             bindings = <
-&none  &none  &none           &none           &none                                                                          &none   &none    &none    &none    &none
-&none  &none  &none           &none           &none            &none                                                  &none  &none   &none    &none    &none    &none
-&none  &none  &kp PAGE_UP     &kp UP_ARROW    &kp PAGE_DOWN    &none                                                  &none  &kp F1  &kp F2   &kp F3   &kp F4   &none
-&none  &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none                                                  &none  &kp F5  &kp F6   &kp F7   &kp F8   &none
-&none  &none  &none           &none           &none            &none  &trans  &trans  &trans  &trans  &trans  &trans  &none  &kp F9  &kp F10  &kp F11  &kp F12  &none
-&none  &none  &none           &none           &none                   &trans  &trans  &trans  &trans  &trans  &trans         &none   &none    &none    &none    &none
+&none  &none     &none           &none           &none                                                                            &none   &none    &none    &none    &none
+&none  &none     &none           &none           &none            &none                                                    &none  &none   &none    &none    &none    &none
+&none  &kp HOME  &kp PAGE_UP     &kp UP_ARROW    &kp PAGE_DOWN    &kp END                                                  &none  &kp F1  &kp F2   &kp F3   &kp F4   &none
+&none  &none     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none                                                    &none  &kp F5  &kp F6   &kp F7   &kp F8   &none
+&none  &none     &none           &none           &none            &none    &trans  &trans  &trans  &trans  &trans  &trans  &none  &kp F9  &kp F10  &kp F11  &kp F12  &none
+&none  &none     &none           &none           &none                     &trans  &trans  &trans  &trans  &trans  &trans         &none   &none    &none    &none    &none
             >;
         };
 
         SymNum {
             bindings = <
-&none  &none  &none      &none     &none                                                                                &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP   &none            &kp PAUSE_BREAK
-&none  &none  &none      &none     &none          &none                                                      &kp LPAR   &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp PSCRN
-&none  &none  &kp PG_UP  &kp UP    &kp PAGE_DOWN  &none                                                      &kp RPAR   &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MINUS     &kp SLCK
-&none  &none  &kp LEFT   &kp DOWN  &kp RIGHT      &msc SCRL_RIGHT                                            &kp PRCNT  &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      &none
-&none  &none  &none      &none     &none          &none            &none  &none  &none  &none  &none  &none  &kp COMMA  &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     &none
-&none  &none  &none      &none     &none                           &none  &none  &none  &none  &none  &none             &kp KP_N0   &kp KP_N0     &kp KP_DOT     &kp KP_ENTER     &none
+&none  &none  &none      &none     &none                                                                                                                                   &kp K_PASTE  &kp K_COPY     &kp K_CUT        &none         &none
+&none  &none  &none      &none     &none          &none                                                                                             &kp K_CALCULATOR       &kp KP_NUM   &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp KP_MINUS  &none
+&none  &none  &kp PG_UP  &kp UP    &kp PAGE_DOWN  &none                                                                                             &kp PERCENT            &kp KP_N7    &kp KP_N8      &kp KP_N9        &kp KP_PLUS   &none
+&none  &none  &kp LEFT   &kp DOWN  &kp RIGHT      &msc SCRL_RIGHT                                                                                   &kp LEFT_PARENTHESIS   &kp KP_N4    &kp KP_N5      &kp KP_N6        &kp KP_PLUS   &none
+&none  &none  &none      &none     &none          &none            &none  &none  &none  &none                &none            &none                 &kp RIGHT_PARENTHESIS  &kp KP_N1    &kp KP_N2      &kp KP_N3        &kp KP_ENTER  &none
+&none  &none  &none      &none     &none                           &none  &none  &none  &mt LESS_THAN COMMA  &kp KP_NUMBER_0  &mt GREATER_THAN DOT                         &kp KP_N0    &kp KP_N0      &kp KP_DOT       &kp KP_ENTER  &none
             >;
         };
 
