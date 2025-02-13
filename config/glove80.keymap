@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
 #define HYPER LC(LS(LG(LALT)))
@@ -92,34 +93,34 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&kp PRINTSCREEN   &kp HOME        &kp PAGE_UP     &kp PAGE_DOWN     &kp END                                                                                                       &kp HOME        &kp PAGE_UP     &kp PAGE_DOWN  &kp END          &kp PRINTSCREEN
-&kp GRAVE         &kp N1          &kp N2          &kp N3            &kp N4           &kp N5                                                                               &kp N6  &kp N7          &kp N8          &kp N9         &kp N0           &kp BACKSLASH
-&kp TAB           &kp Q           &kp W           &kp F             &kp P            &kp B                                                                                &kp J   &kp L           &kp U           &kp Y          &kp SQT          &kp SLASH
-&mt LEFT_GUI ESC  &kp A           &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt LCTRL T      &kp G                                                                                &kp M   &mt RCTRL N     &kp E           &kp I          &kp O            &mt RIGHT_GUI SEMICOLON
-&kp GRAVE         &kp Z           &kp X           &kp C             &kp D            &kp V   &lt 2 TAB           &lt 0 DEL        &tog 0  &kp LGUI  &kp RCTRL  &kp RSHFT  &kp K   &kp H           &kp COMMA       &kp DOT        &kp MINUS        &kp EQUAL
-&kp LEFT_BRACKET  &kp LEFT_ARROW  &kp UP_ARROW    &kp DOWN_ARROW    &kp RIGHT_ARROW          &mt LEFT_ALT SPACE  &mt LCTRL ENTER  &to 0   &kp RALT  &kp RET    &kp SPACE          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT_ARROW  &kp RIGHT_BRACKET
+&kp PRINTSCREEN   &kp HOME        &kp PAGE_UP     &kp PAGE_DOWN     &kp END                                                                                                                                                              &kp HOME        &kp PAGE_UP     &kp PAGE_DOWN  &kp END          &kp PRINTSCREEN
+&kp GRAVE         &kp N1          &kp N2          &kp N3            &kp N4           &kp N5                                                                                                                                      &kp N6  &kp N7          &kp N8          &kp N9         &kp N0           &kp BACKSLASH
+&kp TAB           &kp Q           &kp W           &kp F             &kp P            &kp B                                                                                                                                       &kp J   &kp L           &kp U           &kp Y          &kp SQT          &kp SLASH
+&mt LEFT_GUI ESC  &kp A           &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt LCTRL T      &kp G                                                                                                                                       &kp M   &mt RCTRL N     &kp E           &kp I          &kp O            &mt RIGHT_GUI SEMICOLON
+&kp GRAVE         &kp Z           &kp X           &kp C             &kp D            &kp V   &lt 1 TAB                 &lt 2 ENTER         &lt 3 ESCAPE         &kp LGUI          &kp RCTRL            &mt RCTRL TAB             &kp K   &kp H           &kp COMMA       &kp DOT        &kp MINUS        &kp EQUAL
+&kp LEFT_BRACKET  &kp LEFT_ARROW  &kp UP_ARROW    &kp DOWN_ARROW    &kp RIGHT_ARROW          &mt LEFT_SHIFT BACKSPACE  &mt LEFT_ALT SPACE  &mt LEFT_GUI DELETE  &mt LEFT_WIN DEL  &mt RIGHT_ALT SPACE  &mt LEFT_SHIFT BACKSPACE          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT_ARROW  &kp RIGHT_BRACKET
             >;
         };
 
         NavFN {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                                                                  &trans  &trans   &trans   &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans   &trans   &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &kp F5  &kp F6   &kp F7   &kp F8   &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans   &trans   &trans   &trans
+&none  &none  &none           &none           &none                                                                          &none   &none    &none    &none    &none
+&none  &none  &none           &none           &none            &none                                                  &none  &none   &none    &none    &none    &none
+&none  &none  &kp PAGE_UP     &kp UP_ARROW    &kp PAGE_DOWN    &none                                                  &none  &kp F1  &kp F2   &kp F3   &kp F4   &none
+&none  &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none                                                  &none  &kp F5  &kp F6   &kp F7   &kp F8   &none
+&none  &none  &none           &none           &none            &none  &trans  &trans  &trans  &trans  &trans  &trans  &none  &kp F9  &kp F10  &kp F11  &kp F12  &none
+&none  &none  &none           &none           &none                   &trans  &trans  &trans  &trans  &trans  &trans         &none   &none    &none    &none    &none
             >;
         };
 
         SymNum {
             bindings = <
-&trans  &trans       &trans    &trans    &trans                                                                           &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP   &none            &kp PAUSE_BREAK
-&trans  &none        &none     &none     &none      &kp HOME                                                   &kp LPAR   &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp PSCRN
-&trans  &kp F1       &kp F2    &kp UP    &none      &kp END                                                    &kp RPAR   &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MINUS     &kp SLCK
-&trans  &none        &kp LEFT  &kp DOWN  &kp RIGHT  &kp PG_UP                                                  &kp PRCNT  &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      &none
-&trans  &kp K_CMENU  &none     &kp F11   &kp F12    &kp PG_DN  &trans  &trans  &trans  &trans  &trans  &trans  &kp COMMA  &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     &trans
-&trans  &kp CAPS     &kp INS   &kp F11   &kp F12               &trans  &trans  &trans  &trans  &trans  &trans             &kp KP_N0   &kp KP_N0     &kp KP_DOT     &kp KP_ENTER     &trans
+&none  &none  &none      &none     &none                                                                                &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP   &none            &kp PAUSE_BREAK
+&none  &none  &none      &none     &none          &none                                                      &kp LPAR   &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp PSCRN
+&none  &none  &kp PG_UP  &kp UP    &kp PAGE_DOWN  &none                                                      &kp RPAR   &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MINUS     &kp SLCK
+&none  &none  &kp LEFT   &kp DOWN  &kp RIGHT      &msc SCRL_RIGHT                                            &kp PRCNT  &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      &none
+&none  &none  &none      &none     &none          &none            &none  &none  &none  &none  &none  &none  &kp COMMA  &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     &none
+&none  &none  &none      &none     &none                           &none  &none  &none  &none  &none  &none             &kp KP_N0   &kp KP_N0     &kp KP_DOT     &kp KP_ENTER     &none
             >;
         };
 
