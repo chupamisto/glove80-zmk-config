@@ -8,6 +8,9 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
 #define HYPER LC(LS(LG(LALT)))
@@ -69,15 +72,6 @@
         TD_Right_arrow: TD_Right_arrow {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_RIGHT_ARROW";
-            #binding-cells = <0>;
-            bindings =
-                <&kp LS(RIGHT_ARROW)>,
-                <&mt LC(LS(RIGHT_ARROW)) LC(RIGHT_ARROW)>;
-        };
-
-        new_behavior: new_behavior {
-            compatible = "zmk,behavior-tap-dance";
-            label = "NEW_BEHAVIOR";
             #binding-cells = <0>;
             bindings =
                 <&kp LS(RIGHT_ARROW)>,
@@ -199,6 +193,16 @@
             bindings = <&caps_word>;
             key-positions = <59 62>;
         };
+
+        LAltEnter {
+            bindings = <&kp LA(ENTER)>;
+            key-positions = <38 37 36 35>;
+        };
+
+        RAltEnter {
+            bindings = <&kp LA(ENTER)>;
+            key-positions = <41 42 43 44>;
+        };
     };
 
     keymap {
@@ -225,12 +229,12 @@
 
         NavFN {
             bindings = <
-&none  &none           &none           &none           &none                                                                            &kp INSERT      &kp SCROLLLOCK  &kp PAUSE_BREAK  &none            &none
-&none  &none           &none           &none           &none            &none                                                    &none  &none           &none           &none            &none            &none
-&none  &kp HOME        &kp PAGE_UP     &kp UP_ARROW    &kp PAGE_DOWN    &kp END                                                  &none  &kp F1          &kp F2          &kp F3           &kp F4           &none
-&none  &none           &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none                                                    &none  &kp F5          &kp F6          &kp F7           &kp F8           &none
-&none  &none           &none           &none           &none            &none    &trans  &trans  &trans  &trans  &trans  &trans  &none  &kp F9          &kp F10         &kp F11          &kp F12          &none
-&none  &TD_Left_Arrow  &TD_Up_Arrow    &TD_Down_Arrow  &TD_Right_arrow           &trans  &trans  &trans  &trans  &trans  &trans         &TD_Left_Arrow  &TD_Down_Arrow  &TD_Up_Arrow     &TD_Right_arrow  &none
+&none           &none           &none           &none           &none                                                                                    &kp INSERT      &kp SCROLLLOCK  &kp PAUSE_BREAK  &none            &none
+&none           &none           &none           &none           &none            &none                                                            &none  &none           &none           &none            &none            &none
+&msc SCRL_UP    &kp HOME        &kp PAGE_UP     &mmv MOVE_UP    &kp PAGE_DOWN    &kp END                                                          &none  &kp F1          &kp F2          &kp F3           &mt LA(F4) F4    &none
+&msc SCRL_DOWN  &msc SCRL_LEFT  &mmv MOVE_DOWN  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_RIGHT                                                  &none  &mt RS(F5) F5   &kp F6          &kp F7           &kp F8           &none
+&none           &mkp MB5        &mkp MB4        &mkp RCLK       &mkp LCLK        &mkp MB3         &trans  &trans  &trans  &trans  &trans  &trans  &none  &kp F9          &kp F10         &kp F11          &mt LS(F12) F12  &none
+&none           &TD_Left_Arrow  &TD_Up_Arrow    &TD_Down_Arrow  &TD_Right_arrow                   &trans  &trans  &trans  &trans  &trans  &trans         &TD_Left_Arrow  &TD_Down_Arrow  &TD_Up_Arrow     &TD_Right_arrow  &none
             >;
         };
 
