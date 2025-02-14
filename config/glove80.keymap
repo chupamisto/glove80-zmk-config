@@ -79,6 +79,85 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        LDel {
+            bindings = <&kp DEL>;
+            key-positions = <38 37>;
+        };
+
+        RDel {
+            bindings = <&kp DEL>;
+            key-positions = <41 42>;
+        };
+
+        LCtrlDel {
+            bindings = <&kp LC(DELETE)>;
+            key-positions = <38 37 36>;
+        };
+
+        RCtrlDel {
+            bindings = <&kp LC(DELETE)>;
+            key-positions = <41 42 43>;
+        };
+
+        LSpace {
+            bindings = <&kp SPACE>;
+            key-positions = <37 36>;
+        };
+
+        RSpace {
+            bindings = <&kp SPACE>;
+            key-positions = <42 43>;
+        };
+
+        LBackspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <36 35>;
+        };
+
+        RBackspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <43 44>;
+        };
+
+        LCtrlBackspace {
+            bindings = <&kp LC(BACKSPACE)>;
+            key-positions = <36 35 37>;
+        };
+
+        RCtrlBackspace {
+            bindings = <&kp LC(BACKSPACE)>;
+            key-positions = <43 44 42>;
+        };
+
+        LEnter {
+            bindings = <&kp ENTER>;
+            key-positions = <38 35>;
+        };
+
+        LText_extract {
+            bindings = <&kp LG(LS(E))>;
+            key-positions = <26 25 24>;
+        };
+
+        RText_extract {
+            bindings = <&kp LG(LS(E))>;
+            key-positions = <29 30 31>;
+        };
+
+        LCaps_Word {
+            bindings = <&caps_word>;
+            key-positions = <50 47>;
+        };
+
+        RCaps_Word {
+            bindings = <&caps_word>;
+            key-positions = <59 62>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -96,7 +175,7 @@
 &kp GRAVE         &kp N1          &kp N2          &kp N3            &kp N4           &kp N5                                                                                                                                      &kp N6  &kp N7          &kp N8          &kp N9         &kp N0           &kp BACKSLASH
 &kp TAB           &kp Q           &kp W           &kp F             &kp P            &kp B                                                                                                                                       &kp J   &kp L           &kp U           &kp Y          &kp SQT          &kp SLASH
 &caps_word        &kp A           &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt LCTRL T      &kp G                                                                                                                                       &kp M   &mt RCTRL N     &kp E           &kp I          &kp O            &mt RIGHT_GUI SEMICOLON
-&kp ESC           &kp Z           &kp X           &kp C             &kp D            &kp V   &lt 1 TAB                 &lt 2 ENTER         &lt 3 ESCAPE         &kp LGUI          &kp RCTRL            &mt RCTRL TAB             &kp K   &kp H           &kp COMMA       &kp DOT        &kp MINUS        &kp EQUAL
+&kp ESC           &kp Z           &kp X           &kp C             &kp D            &kp V   &lt 1 TAB                 &lt 2 ENTER         &lt 3 ESCAPE         &kp ESCAPE        &kp RCTRL            &mt RCTRL TAB             &kp K   &kp H           &kp COMMA       &kp DOT        &kp MINUS        &kp EQUAL
 &kp LEFT_BRACKET  &kp LEFT_ARROW  &kp UP_ARROW    &kp DOWN_ARROW    &kp RIGHT_ARROW          &mt LEFT_SHIFT BACKSPACE  &mt LEFT_ALT SPACE  &mt LEFT_GUI DELETE  &mt LEFT_WIN DEL  &mt RIGHT_ALT SPACE  &mt LEFT_SHIFT BACKSPACE          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT_ARROW  &kp RIGHT_BRACKET
             >;
         };
