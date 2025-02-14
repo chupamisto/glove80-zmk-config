@@ -40,6 +40,49 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&rgb_ug_status_macro>;
         };
+
+        TD_Left_Arrow: TD_Left_Arrow {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_LEFT_ARROW";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LS(LEFT_ARROW)>,
+                <&mt LC(LS(LEFT_ARROW)) LC(LEFT_ARROW)>;
+        };
+
+        TD_Up_Arrow: TD_Up_Arrow {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_UP_ARROW";
+            #binding-cells = <0>;
+            bindings = <&kp LS(UP_ARROW)>, <&mt LC(LS(UP_ARROW)) LC(UP_ARROW)>;
+        };
+
+        TD_Down_Arrow: TD_Down_Arrow {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_DOWN_ARROW";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LS(DOWN_ARROW)>,
+                <&mt LC(LS(DOWN_ARROW)) LC(DOWN_ARROW)>;
+        };
+
+        TD_Right_arrow: TD_Right_arrow {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_RIGHT_ARROW";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LS(RIGHT_ARROW)>,
+                <&mt LC(LS(RIGHT_ARROW)) LC(RIGHT_ARROW)>;
+        };
+
+        new_behavior: new_behavior {
+            compatible = "zmk,behavior-tap-dance";
+            label = "NEW_BEHAVIOR";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LS(RIGHT_ARROW)>,
+                <&mt LC(LS(RIGHT_ARROW)) LC(RIGHT_ARROW)>;
+        };
     };
 
     macros {
@@ -182,12 +225,12 @@
 
         NavFN {
             bindings = <
-&none  &none     &none           &none           &none                                                                            &none   &none    &none    &none    &none
-&none  &none     &none           &none           &none            &none                                                    &none  &none   &none    &none    &none    &none
-&none  &kp HOME  &kp PAGE_UP     &kp UP_ARROW    &kp PAGE_DOWN    &kp END                                                  &none  &kp F1  &kp F2   &kp F3   &kp F4   &none
-&none  &none     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none                                                    &none  &kp F5  &kp F6   &kp F7   &kp F8   &none
-&none  &none     &none           &none           &none            &none    &trans  &trans  &trans  &trans  &trans  &trans  &none  &kp F9  &kp F10  &kp F11  &kp F12  &none
-&none  &none     &none           &none           &none                     &trans  &trans  &trans  &trans  &trans  &trans         &none   &none    &none    &none    &none
+&none  &none           &none           &none           &none                                                                            &kp INSERT      &kp SCROLLLOCK  &kp PAUSE_BREAK  &none            &none
+&none  &none           &none           &none           &none            &none                                                    &none  &none           &none           &none            &none            &none
+&none  &kp HOME        &kp PAGE_UP     &kp UP_ARROW    &kp PAGE_DOWN    &kp END                                                  &none  &kp F1          &kp F2          &kp F3           &kp F4           &none
+&none  &none           &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none                                                    &none  &kp F5          &kp F6          &kp F7           &kp F8           &none
+&none  &none           &none           &none           &none            &none    &trans  &trans  &trans  &trans  &trans  &trans  &none  &kp F9          &kp F10         &kp F11          &kp F12          &none
+&none  &TD_Left_Arrow  &TD_Up_Arrow    &TD_Down_Arrow  &TD_Right_arrow           &trans  &trans  &trans  &trans  &trans  &trans         &TD_Left_Arrow  &TD_Down_Arrow  &TD_Up_Arrow     &TD_Right_arrow  &none
             >;
         };
 
