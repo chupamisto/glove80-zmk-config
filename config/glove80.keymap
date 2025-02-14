@@ -8,9 +8,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
 #define HYPER LC(LS(LG(LALT)))
@@ -77,6 +74,57 @@
                 <&kp LS(RIGHT_ARROW)>,
                 <&mt LC(LS(RIGHT_ARROW)) LC(RIGHT_ARROW)>;
         };
+
+        TD_Layer1: TD_Layer1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_LAYER1";
+            #binding-cells = <0>;
+            bindings = <&lt 1 TAB>, <&tog 1>;
+        };
+
+        TD_Layer2: TD_Layer2 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_LAYER2";
+            #binding-cells = <0>;
+            bindings = <&lt 2 ENTER>, <&tog 2>;
+        };
+
+        TD_Layer3: TD_Layer3 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_LAYER3";
+            #binding-cells = <0>;
+            bindings = <&lt 3 ESCAPE>, <&tog 3>;
+        };
+
+        TD_Home: TD_Home {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_HOME";
+            #binding-cells = <0>;
+            bindings = <&mt LS(HOME) HOME>, <&mt LC(RS(HOME)) LC(HOME)>;
+        };
+
+        TD_End: TD_End {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_END";
+            #binding-cells = <0>;
+            bindings = <&mt LS(END) END>, <&mt LC(RS(END)) LC(END)>;
+        };
+
+        TD_PgUp: TD_PgUp {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_PGUP";
+            #binding-cells = <0>;
+            bindings = <&mt LS(PG_UP) PG_UP>, <&mt LC(RS(PG_UP)) LC(PG_UP)>;
+        };
+
+        TD_PgDn: TD_PgDn {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_PGDN";
+            #binding-cells = <0>;
+            bindings =
+                <&mt LS(PAGE_DOWN) PAGE_DOWN>,
+                <&mt LC(RS(PAGE_DOWN)) LC(PAGE_DOWN)>;
+        };
     };
 
     macros {
@@ -122,86 +170,103 @@
         LDel {
             bindings = <&kp DEL>;
             key-positions = <38 37>;
+            layers = <0 2>;
         };
 
         RDel {
             bindings = <&kp DEL>;
             key-positions = <41 42>;
+            layers = <0 2>;
         };
 
         LCtrlDel {
             bindings = <&kp LC(DELETE)>;
             key-positions = <38 37 36>;
+            layers = <0 2>;
         };
 
         RCtrlDel {
             bindings = <&kp LC(DELETE)>;
             key-positions = <41 42 43>;
+            layers = <0 2>;
         };
 
         LSpace {
             bindings = <&kp SPACE>;
             key-positions = <37 36>;
+            layers = <0 2>;
         };
 
         RSpace {
             bindings = <&kp SPACE>;
             key-positions = <42 43>;
+            layers = <0 2>;
         };
 
         LBackspace {
             bindings = <&kp BACKSPACE>;
             key-positions = <36 35>;
+            layers = <0 2>;
         };
 
         RBackspace {
             bindings = <&kp BACKSPACE>;
             key-positions = <43 44>;
+            layers = <0 2>;
         };
 
         LCtrlBackspace {
             bindings = <&kp LC(BACKSPACE)>;
             key-positions = <36 35 37>;
+            layers = <0 2>;
         };
 
         RCtrlBackspace {
             bindings = <&kp LC(BACKSPACE)>;
             key-positions = <43 44 42>;
+            layers = <0 2>;
         };
 
         LEnter {
             bindings = <&kp ENTER>;
             key-positions = <38 35>;
+            layers = <0 2>;
         };
 
         LText_extract {
             bindings = <&kp LG(LS(E))>;
             key-positions = <26 25 24>;
+            layers = <0 1>;
         };
 
         RText_extract {
             bindings = <&kp LG(LS(E))>;
             key-positions = <29 30 31>;
+            layers = <0 2>;
         };
 
         LCaps_Word {
             bindings = <&caps_word>;
             key-positions = <50 47>;
+            layers = <0 2>;
         };
 
         RCaps_Word {
             bindings = <&caps_word>;
             key-positions = <59 62>;
+            layers = <0 2>;
         };
 
         LAltEnter {
             bindings = <&kp LA(ENTER)>;
             key-positions = <38 37 36 35>;
+            layers = <0 2>;
         };
 
         RAltEnter {
             bindings = <&kp LA(ENTER)>;
             key-positions = <41 42 43 44>;
+            layers = <0 2>;
         };
     };
 
@@ -222,19 +287,19 @@
 &kp GRAVE         &kp N1          &kp N2          &kp N3            &kp N4           &kp N5                                                                                                                                      &kp N6  &kp N7          &kp N8          &kp N9         &kp N0           &kp BACKSLASH
 &kp TAB           &kp Q           &kp W           &kp F             &kp P            &kp B                                                                                                                                       &kp J   &kp L           &kp U           &kp Y          &kp SQT          &kp SLASH
 &caps_word        &kp A           &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt LCTRL T      &kp G                                                                                                                                       &kp M   &mt RCTRL N     &kp E           &kp I          &kp O            &mt RIGHT_GUI SEMICOLON
-&kp ESC           &kp Z           &kp X           &kp C             &kp D            &kp V   &lt 1 TAB                 &lt 2 ENTER         &lt 3 ESCAPE         &kp ESCAPE        &kp RCTRL            &mt RCTRL TAB             &kp K   &kp H           &kp COMMA       &kp DOT        &kp MINUS        &kp EQUAL
-&kp LEFT_BRACKET  &kp LEFT_ARROW  &kp UP_ARROW    &kp DOWN_ARROW    &kp RIGHT_ARROW          &mt LEFT_SHIFT BACKSPACE  &mt LEFT_ALT SPACE  &mt LEFT_GUI DELETE  &mt LEFT_WIN DEL  &mt RIGHT_ALT SPACE  &mt LEFT_SHIFT BACKSPACE          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT_ARROW  &kp RIGHT_BRACKET
+&kp ESC           &kp Z           &kp X           &kp C             &kp D            &kp V   &TD_Layer1            &TD_Layer2              &TD_Layer3           &kp ESCAPE        &mt RCTRL ENTER          &mt RCTRL TAB         &kp K   &kp H           &kp COMMA       &kp DOT        &kp MINUS        &kp EQUAL
+&kp LEFT_BRACKET  &kp LEFT_ARROW  &kp UP_ARROW    &kp DOWN_ARROW    &kp RIGHT_ARROW          &mt LEFT_SHIFT SPACE  &mt LEFT_ALT BACKSPACE  &mt LEFT_GUI DELETE  &mt LEFT_WIN DEL  &mt RIGHT_ALT BACKSPACE  &mt LEFT_SHIFT SPACE          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT_ARROW  &kp RIGHT_BRACKET
             >;
         };
 
         NavFN {
             bindings = <
-&none           &none           &none           &none           &none                                                                                    &kp INSERT      &kp SCROLLLOCK  &kp PAUSE_BREAK  &none            &none
-&none           &none           &none           &none           &none            &none                                                            &none  &none           &none           &none            &none            &none
-&msc SCRL_UP    &kp HOME        &kp PAGE_UP     &mmv MOVE_UP    &kp PAGE_DOWN    &kp END                                                          &none  &kp F1          &kp F2          &kp F3           &mt LA(F4) F4    &none
-&msc SCRL_DOWN  &msc SCRL_LEFT  &mmv MOVE_DOWN  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_RIGHT                                                  &none  &mt RS(F5) F5   &kp F6          &kp F7           &kp F8           &none
-&none           &mkp MB5        &mkp MB4        &mkp RCLK       &mkp LCLK        &mkp MB3         &trans  &trans  &trans  &trans  &trans  &trans  &none  &kp F9          &kp F10         &kp F11          &mt LS(F12) F12  &none
-&none           &TD_Left_Arrow  &TD_Up_Arrow    &TD_Down_Arrow  &TD_Right_arrow                   &trans  &trans  &trans  &trans  &trans  &trans         &TD_Left_Arrow  &TD_Down_Arrow  &TD_Up_Arrow     &TD_Right_arrow  &none
+&none         &none           &none           &none           &none                                                                                                    &kp INSERT      &kp SCROLLLOCK  &kp PAUSE_BREAK  &none            &none
+&none         &none           &none           &none           &none            &none                                                                            &none  &none           &none           &none            &none            &none
+&none         &TD_Home        &TD_PgUp        &kp UP_ARROW    &TD_PgDn         &TD_End                                                                          &none  &kp F1          &kp F2          &kp F3           &mt LA(F4) F4    &none
+&sk LEFT_WIN  &sk LCTRL       &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none                                                                            &none  &mt RS(F5) F5   &kp F6          &kp F7           &kp F8           &none
+&kp ESC       &sk LEFT_ALT    &none           &none           &none            &mt LC(LS(TAB)) LC(TAB)  &trans          &trans  &trans  &trans  &trans  &trans  &none  &kp F9          &kp F10         &kp F11          &mt LS(F12) F12  &none
+&none         &TD_Left_Arrow  &TD_Up_Arrow    &TD_Down_Arrow  &TD_Right_arrow                           &sk LEFT_SHIFT  &trans  &trans  &trans  &trans  &trans         &TD_Left_Arrow  &TD_Down_Arrow  &TD_Up_Arrow     &TD_Right_arrow  &none
             >;
         };
 
@@ -251,12 +316,12 @@
 
         Adjust_layer {
             bindings = <
-&bt_0          &bt_1            &bt_2            &bt_3            &bt BT_CLR                                                                                &none  &none  &none  &none  &none
-&bt BT_DISC 0  &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &none            &bt BT_CLR_ALL                                                    &none  &none  &none  &none  &none  &none
-&none          &none            &none            &none            &none            &none                                                             &none  &none  &none  &none  &none  &none
-&bootloader    &rgb_ug RGB_SPI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG                                                   &none  &none  &none  &none  &none  &bootloader
-&none          &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF  &bt_2  &bt_3  &none         &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none          &none            &none            &none            &none                             &bt_0  &bt_1  &out OUT_USB  &none  &none  &none         &none  &none  &none  &none  &sys_reset
+&bt_0          &bt_1            &bt_2            &bt_3            &bt BT_CLR                                                                                  &none  &none  &none  &none  &none
+&bt BT_DISC 0  &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &none            &bt BT_CLR_ALL                                                      &none  &none  &none  &none  &none  &none
+&none          &none            &none            &none            &none            &none                                                               &none  &none  &none  &none  &none  &none
+&bootloader    &rgb_ug RGB_SPI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG                                                     &none  &none  &none  &none  &none  &bootloader
+&none          &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF  &trans  &trans  &trans        &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none          &none            &none            &none            &none                             &trans  &trans  &out OUT_USB  &none  &none  &none         &none  &none  &none  &none  &sys_reset
             >;
         };
     };
