@@ -19,6 +19,15 @@
 #define MAGIC 2
 #define FACTORY_TEST 3
 
+&mt {
+    quick-tap-ms = <175>;
+    tapping-term-ms = <280>;
+    require-prior-idle-ms = <150>;
+    flavor = "balanced";
+    hold-trigger-on-release;
+    hold-trigger-key-positions = <52 53 54 70 71 69 44 45 54 55 56 57 58 59 60 61 62 63 72 73 74 75 76 77 78 79 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 5 6 7 8 16 17 18 19>;
+};
+
 / {
     behaviors {
         // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
@@ -75,27 +84,6 @@
                 <&mt LC(LS(RIGHT_ARROW)) LC(RIGHT_ARROW)>;
         };
 
-        TD_Tab_Layer1: TD_Tab_Layer1 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_TAB_LAYER1";
-            #binding-cells = <0>;
-            bindings = <&lt 1 TAB>, <&tog 1>;
-        };
-
-        TD_Enter_Layer2: TD_Enter_Layer2 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_ENTER_LAYER2";
-            #binding-cells = <0>;
-            bindings = <&lt 2 ENTER>, <&tog 2>;
-        };
-
-        TD_Esc_Layer3: TD_Esc_Layer3 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_ESC_LAYER3";
-            #binding-cells = <0>;
-            bindings = <&lt 3 ESCAPE>, <&tog 3>;
-        };
-
         TD_Home: TD_Home {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_HOME";
@@ -124,6 +112,20 @@
             bindings =
                 <&mt LS(PAGE_DOWN) PAGE_DOWN>,
                 <&mt LC(RS(PAGE_DOWN)) LC(PAGE_DOWN)>;
+        };
+
+        TD_Enter: TD_Enter {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_ENTER";
+            #binding-cells = <0>;
+            bindings = <&mt LS(ENTER) ENTER>, <&mt LC(ENTER) LA(ENTER)>;
+        };
+
+        TD_Tab: TD_Tab {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_TAB";
+            #binding-cells = <0>;
+            bindings = <&mt LC(TAB) TAB>, <&kp LC(LS(TAB))>;
         };
     };
 
@@ -167,30 +169,6 @@
     combos {
         compatible = "zmk,combos";
 
-        LDel {
-            bindings = <&kp DEL>;
-            key-positions = <38 37>;
-            layers = <0 2>;
-        };
-
-        RDel {
-            bindings = <&kp DEL>;
-            key-positions = <41 42>;
-            layers = <0 2>;
-        };
-
-        LCtrlDel {
-            bindings = <&kp LC(DELETE)>;
-            key-positions = <38 37 36>;
-            layers = <0 2>;
-        };
-
-        RCtrlDel {
-            bindings = <&kp LC(DELETE)>;
-            key-positions = <41 42 43>;
-            layers = <0 2>;
-        };
-
         LSpace {
             bindings = <&kp SPACE>;
             key-positions = <37 36>;
@@ -200,30 +178,6 @@
         RSpace {
             bindings = <&kp SPACE>;
             key-positions = <42 43>;
-            layers = <0 2>;
-        };
-
-        LBackspace {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <36 35>;
-            layers = <0 2>;
-        };
-
-        RBackspace {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <43 44>;
-            layers = <0 2>;
-        };
-
-        LCtrlBackspace {
-            bindings = <&kp LC(BACKSPACE)>;
-            key-positions = <36 35 37>;
-            layers = <0 2>;
-        };
-
-        RCtrlBackspace {
-            bindings = <&kp LC(BACKSPACE)>;
-            key-positions = <43 44 42>;
             layers = <0 2>;
         };
 
@@ -274,6 +228,51 @@
             key-positions = <41 44>;
             layers = <0 2>;
         };
+
+        LToLayer1 {
+            bindings = <&to 1>;
+            key-positions = <52 69>;
+        };
+
+        RToLayer1 {
+            bindings = <&to 1>;
+            key-positions = <57 74>;
+        };
+
+        LToLayer2 {
+            bindings = <&to 2>;
+            key-positions = <53 70>;
+        };
+
+        RToLayer2 {
+            bindings = <&to 2>;
+            key-positions = <56 73>;
+        };
+
+        LToLayer3 {
+            bindings = <&to 3>;
+            key-positions = <54 71>;
+        };
+
+        RToLayer3 {
+            bindings = <&to 3>;
+            key-positions = <55 72>;
+        };
+
+        CTRLAltDel {
+            bindings = <&kp LC(LA(DEL))>;
+            key-positions = <72 73 74>;
+        };
+
+        LToLayer0 {
+            bindings = <&to 0>;
+            key-positions = <65 66 67 68>;
+        };
+
+        RToLayer0 {
+            bindings = <&to 0>;
+            key-positions = <75 76 77 78>;
+        };
     };
 
     keymap {
@@ -291,32 +290,32 @@
             bindings = <
 &kp PRINTSCREEN   &kp HOME        &kp PAGE_UP     &kp PAGE_DOWN     &kp END                                                                                                                                                              &kp HOME        &kp PAGE_UP     &kp PAGE_DOWN  &kp END          &kp PRINTSCREEN
 &kp GRAVE         &kp N1          &kp N2          &kp N3            &kp N4           &kp N5                                                                                                                                      &kp N6  &kp N7          &kp N8          &kp N9         &kp N0           &kp BACKSLASH
-&kp TAB           &kp Q           &kp W           &kp F             &kp P            &kp B                                                                                                                                       &kp J   &kp L           &kp U           &kp Y          &kp SQT          &kp SLASH
-&caps_word        &kp A           &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt LCTRL T      &kp G                                                                                                                                       &kp M   &mt RCTRL N     &kp E           &kp I          &kp O            &mt RIGHT_GUI SEMICOLON
-&kp ESC           &kp Z           &kp X           &kp C             &kp D            &kp V   &TD_Tab_Layer1            &TD_Enter_Layer2    &TD_Esc_Layer3       &kp ESCAPE        &mt LEFT_ALT ENTER   &mt RCTRL TAB             &kp K   &kp H           &kp COMMA       &kp DOT        &kp MINUS        &kp EQUAL
+&TD_Tab           &kp Q           &kp W           &kp F             &kp P            &kp B                                                                                                                                       &kp J   &kp L           &kp U           &kp Y          &kp SQT          &kp SLASH
+&caps_word        &kp A           &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt LCTRL T      &kp G                                                                                                                                       &kp M   &mt RCTRL N     &kp E           &kp I          &kp O            &kp SEMICOLON
+&kp ESC           &kp Z           &kp X           &kp C             &kp D            &kp V   &lt 1 TAB                 &lt 2 ENTER         &lt 3 ESCAPE         &kp ESCAPE        &mt LEFT_ALT ENTER   &mt RCTRL TAB             &kp K   &kp H           &kp COMMA       &kp DOT        &kp MINUS        &kp EQUAL
 &kp LEFT_BRACKET  &kp LEFT_ARROW  &kp UP_ARROW    &kp DOWN_ARROW    &kp RIGHT_ARROW          &mt LEFT_SHIFT BACKSPACE  &mt LEFT_ALT SPACE  &mt LEFT_GUI DELETE  &mt LEFT_WIN DEL  &mt RIGHT_ALT SPACE  &mt LEFT_SHIFT BACKSPACE          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT_ARROW  &kp RIGHT_BRACKET
             >;
         };
 
         NavFN {
             bindings = <
-&trans        &none           &none           &none           &none                                                                                                                &kp INSERT      &kp SCROLLLOCK  &kp PAUSE_BREAK  &none            &none
-&none         &none           &none           &none           &none            &none                                                                                        &none  &none           &none           &none            &none            &none
-&trans        &TD_Home        &TD_PgUp        &kp UP_ARROW    &TD_PgDn         &TD_End                                                                                      &none  &kp F1          &kp F2          &kp F3           &mt LA(F4) F4    &none
-&sk LEFT_WIN  &sk LCTRL       &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none                                                                                        &none  &mt RS(F5) F5   &kp F6          &kp F7           &kp F8           &none
-&kp ESC       &sk LEFT_ALT    &none           &none           &none            &mt LC(LS(TAB)) LC(TAB)  &trans          &trans        &trans        &trans  &trans  &trans  &none  &kp F9          &kp F10         &kp F11          &mt LS(F12) F12  &none
-&none         &TD_Left_Arrow  &TD_Up_Arrow    &TD_Down_Arrow  &TD_Right_arrow                           &sk LEFT_SHIFT  &sk LEFT_ALT  &sk LEFT_GUI  &trans  &trans  &trans         &TD_Left_Arrow  &TD_Down_Arrow  &TD_Up_Arrow     &TD_Right_arrow  &none
+&kp PRINTSCREEN     &kp SYSREQ      &kp PAUSE_BREAK      &kp SCROLLLOCK  &kp INS                                                                                                          &kp INSERT      &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp SYSREQ       &kp PRINTSCREEN
+&none               &none           &none                &none           &none            &none                                                                                    &none  &none           &none           &none            &none            &none
+&TD_Tab             &TD_Home        &TD_PgUp             &kp UP_ARROW    &TD_PgDn         &TD_End                                                                                  &none  &kp F1          &kp F2          &kp F3           &mt LA(F4) F4    &none
+&sk LEFT_WIN        &sk LCTRL       &kp LEFT_ARROW       &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LC(Y)                                                                                &none  &mt RS(F5) F5   &kp F6          &kp F7           &kp F8           &none
+&kp ESC             &kp LC(Z)       &mt LC(LS(X)) LC(X)  &kp LC(C)       &TD_Enter        &mt LC(LS(V)) LC(V)  &trans          &trans        &trans        &trans  &trans  &trans  &none  &kp F9          &kp F10         &kp F11          &mt LS(F12) F12  &none
+&kp K_CONTEXT_MENU  &TD_Left_Arrow  &TD_Up_Arrow         &TD_Down_Arrow  &TD_Right_arrow                       &sk LEFT_SHIFT  &sk LEFT_ALT  &sk LEFT_GUI  &trans  &trans  &trans         &TD_Left_Arrow  &TD_Down_Arrow  &TD_Up_Arrow     &TD_Right_arrow  &kp K_CONTEXT_MENU
             >;
         };
 
         SymNum {
             bindings = <
-&trans           &none                        &none                          &none                  &none                                                                                                                                                        &kp K_PASTE  &kp K_COPY     &kp K_CUT        &none         &none
-&none            &none                        &none                          &none                  &none                  &none                                                                                                          &kp K_CALCULATOR       &kp KP_NUM   &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp KP_MINUS  &none
-&trans           &kp EXCLAMATION              &kp AT_SIGN                    &kp HASH               &kp DOLLAR             &kp PERCENT                                                                                                    &kp PERCENT            &kp KP_N7    &kp KP_N8      &kp KP_N9        &kp KP_PLUS   &none
-&mt TILDE GRAVE  &kp CARET                    &kp AMPERSAND                  &mt DOUBLE_QUOTES SQT  &mt SEMICOLON COLON    &mt QUESTION EQUAL                                                                                             &kp LEFT_PARENTHESIS   &kp KP_N4    &kp KP_N5      &kp KP_N6        &kp KP_PLUS   &none
-&none            &mt LEFT_BRACKET LEFT_BRACE  &mt RIGHT_BRACE RIGHT_BRACKET  &kp LEFT_PARENTHESIS   &kp RIGHT_PARENTHESIS  &mt PIPE NON_US_BACKSLASH  &trans  &trans  &trans  &trans               &trans           &trans                &kp RIGHT_PARENTHESIS  &kp KP_N1    &kp KP_N2      &kp KP_N3        &kp KP_ENTER  &none
-&none            &trans                       &trans                         &trans                 &trans                                            &trans  &trans  &trans  &mt LESS_THAN COMMA  &kp KP_NUMBER_0  &mt GREATER_THAN DOT                         &kp KP_N0    &kp KP_N0      &kp KP_DOT       &kp KP_ENTER  &none
+&kp PRINTSCREEN     &kp SYSREQ                   &kp PAUSE_BREAK                &kp SCROLLLOCK         &kp INS                                                                                                                                                      &kp K_PASTE  &kp K_COPY     &kp K_CUT        &none         &kp PRINTSCREEN
+&none               &none                        &none                          &none                  &none                  &none                                                                                                          &kp K_CALCULATOR       &kp KP_NUM   &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp KP_MINUS  &none
+&TD_Tab             &kp EXCLAMATION              &kp AT_SIGN                    &kp HASH               &kp DOLLAR             &kp PERCENT                                                                                                    &kp PERCENT            &kp KP_N7    &kp KP_N8      &kp KP_N9        &kp KP_PLUS   &none
+&mt TILDE GRAVE     &kp CARET                    &kp AMPERSAND                  &mt DOUBLE_QUOTES SQT  &mt SEMICOLON COLON    &mt QUESTION EQUAL                                                                                             &kp LEFT_PARENTHESIS   &kp KP_N4    &kp KP_N5      &kp KP_N6        &kp KP_PLUS   &none
+&kp ESC             &mt LEFT_BRACKET LEFT_BRACE  &mt RIGHT_BRACE RIGHT_BRACKET  &kp LEFT_PARENTHESIS   &kp RIGHT_PARENTHESIS  &mt PIPE NON_US_BACKSLASH  &trans  &trans  &trans  &trans               &trans           &trans                &kp RIGHT_PARENTHESIS  &kp KP_N1    &kp KP_N2      &kp KP_N3        &kp KP_ENTER  &none
+&kp K_CONTEXT_MENU  &trans                       &trans                         &trans                 &trans                                            &trans  &trans  &trans  &mt LESS_THAN COMMA  &kp KP_NUMBER_0  &mt GREATER_THAN DOT                         &kp KP_N0    &kp KP_N0      &kp KP_DOT       &kp KP_ENTER  &none
             >;
         };
 
@@ -326,7 +325,7 @@
 &bt BT_DISC 0  &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &none            &bt BT_CLR_ALL                                                      &none  &none  &none  &none  &none  &none
 &none          &none            &none            &none            &none            &none                                                               &none  &none  &none  &none  &none  &none
 &bootloader    &rgb_ug RGB_SPI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG                                                     &none  &none  &none  &none  &none  &bootloader
-&trans         &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF  &trans  &trans  &trans        &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none          &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF  &trans  &trans  &trans        &none  &none  &none  &none  &none  &none  &none  &none  &none
 &none          &none            &none            &none            &none                             &trans  &trans  &out OUT_USB  &none  &none  &none         &none  &none  &none  &none  &sys_reset
             >;
         };
