@@ -171,13 +171,13 @@
 
         LSpace {
             bindings = <&kp SPACE>;
-            key-positions = <37 36>;
+            key-positions = <38 37>;
             layers = <0 2>;
         };
 
         RSpace {
             bindings = <&kp SPACE>;
-            key-positions = <42 43>;
+            key-positions = <42 41>;
             layers = <0 2>;
         };
 
