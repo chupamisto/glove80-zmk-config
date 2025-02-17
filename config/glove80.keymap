@@ -127,6 +127,13 @@
             #binding-cells = <0>;
             bindings = <&mt LC(TAB) TAB>, <&kp LC(LS(TAB))>;
         };
+
+        TD_Space: TD_Space {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_SPACE";
+            #binding-cells = <0>;
+            bindings = <&mt LEFT_SHIFT SPACE>, <&kp LS(SPACE)>;
+        };
     };
 
     macros {
@@ -288,12 +295,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&kp PRINTSCREEN   &kp HOME        &kp PAGE_UP     &kp PAGE_DOWN     &kp END                                                                                                                                                              &kp HOME        &kp PAGE_UP     &kp PAGE_DOWN  &kp END          &kp PRINTSCREEN
-&kp GRAVE         &kp N1          &kp N2          &kp N3            &kp N4           &kp N5                                                                                                                                      &kp N6  &kp N7          &kp N8          &kp N9         &kp N0           &kp BACKSLASH
-&TD_Tab           &kp Q           &kp W           &kp F             &kp P            &kp B                                                                                                                                       &kp J   &kp L           &kp U           &kp Y          &kp SQT          &kp SLASH
-&caps_word        &kp A           &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt LCTRL T      &kp G                                                                                                                                       &kp M   &mt RCTRL N     &kp E           &kp I          &kp O            &kp SEMICOLON
-&kp ESC           &kp Z           &kp X           &kp C             &kp D            &kp V   &lt 1 TAB                 &lt 2 ENTER         &lt 3 ESCAPE         &kp ESCAPE        &mt LEFT_ALT ENTER   &mt RCTRL TAB             &kp K   &kp H           &kp COMMA       &kp DOT        &kp MINUS        &kp EQUAL
-&kp LEFT_BRACKET  &kp LEFT_ARROW  &kp UP_ARROW    &kp DOWN_ARROW    &kp RIGHT_ARROW          &mt LEFT_SHIFT BACKSPACE  &mt LEFT_ALT SPACE  &mt LEFT_GUI DELETE  &mt LEFT_WIN DEL  &mt RIGHT_ALT SPACE  &mt LEFT_SHIFT BACKSPACE          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT_ARROW  &kp RIGHT_BRACKET
+&kp PRINTSCREEN   &kp HOME        &kp PAGE_UP     &kp PAGE_DOWN     &kp END                                                                                                                                            &kp HOME        &kp PAGE_UP     &kp PAGE_DOWN  &kp END          &kp PRINTSCREEN
+&kp GRAVE         &kp N1          &kp N2          &kp N3            &kp N4           &kp N5                                                                                                                    &kp N6  &kp N7          &kp N8          &kp N9         &kp N0           &kp BACKSLASH
+&TD_Tab           &kp Q           &kp W           &kp F             &kp P            &kp B                                                                                                                     &kp J   &kp L           &kp U           &kp Y          &kp SQT          &kp SLASH
+&caps_word        &kp A           &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt LCTRL T      &kp G                                                                                                                     &kp M   &mt RCTRL N     &kp E           &kp I          &kp O            &kp SEMICOLON
+&kp ESC           &kp Z           &kp X           &kp C             &kp D            &kp V   &lt 1 TAB  &lt 2 ENTER             &lt 3 ESCAPE         &kp ESCAPE        &mt LEFT_ALT ENTER       &mt RCTRL TAB  &kp K   &kp H           &kp COMMA       &kp DOT        &kp MINUS        &kp EQUAL
+&kp LEFT_BRACKET  &kp LEFT_ARROW  &kp UP_ARROW    &kp DOWN_ARROW    &kp RIGHT_ARROW          &TD_Space  &mt LEFT_ALT BACKSPACE  &mt LEFT_GUI DELETE  &mt LEFT_WIN DEL  &mt RIGHT_ALT BACKSPACE  &TD_Space              &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT_ARROW  &kp RIGHT_BRACKET
             >;
         };
 
@@ -310,12 +317,12 @@
 
         SymNum {
             bindings = <
-&kp PRINTSCREEN     &kp SYSREQ                   &kp PAUSE_BREAK                &kp SCROLLLOCK         &kp INS                                                                                                                                                      &kp K_PASTE  &kp K_COPY     &kp K_CUT        &none         &kp PRINTSCREEN
-&none               &none                        &none                          &none                  &none                  &none                                                                                                          &kp K_CALCULATOR       &kp KP_NUM   &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp KP_MINUS  &none
-&TD_Tab             &kp EXCLAMATION              &kp AT_SIGN                    &kp HASH               &kp DOLLAR             &kp PERCENT                                                                                                    &kp PERCENT            &kp KP_N7    &kp KP_N8      &kp KP_N9        &kp KP_PLUS   &none
-&mt TILDE GRAVE     &kp CARET                    &kp AMPERSAND                  &mt DOUBLE_QUOTES SQT  &mt SEMICOLON COLON    &mt QUESTION EQUAL                                                                                             &kp LEFT_PARENTHESIS   &kp KP_N4    &kp KP_N5      &kp KP_N6        &kp KP_PLUS   &none
-&kp ESC             &mt LEFT_BRACKET LEFT_BRACE  &mt RIGHT_BRACE RIGHT_BRACKET  &kp LEFT_PARENTHESIS   &kp RIGHT_PARENTHESIS  &mt PIPE NON_US_BACKSLASH  &trans  &trans  &trans  &trans               &trans           &trans                &kp RIGHT_PARENTHESIS  &kp KP_N1    &kp KP_N2      &kp KP_N3        &kp KP_ENTER  &none
-&kp K_CONTEXT_MENU  &trans                       &trans                         &trans                 &trans                                            &trans  &trans  &trans  &mt LESS_THAN COMMA  &kp KP_NUMBER_0  &mt GREATER_THAN DOT                         &kp KP_N0    &kp KP_N0      &kp KP_DOT       &kp KP_ENTER  &none
+&kp PRINTSCREEN     &kp SYSREQ                   &kp PAUSE_BREAK                &kp SCROLLLOCK         &kp INS                                                                                                                                                              &kp K_PASTE  &kp K_COPY     &kp K_CUT        &none         &kp PRINTSCREEN
+&none               &none                        &none                          &none                  &none                  &none                                                                                                                  &kp K_CALCULATOR       &kp KP_NUM   &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp KP_MINUS  &none
+&TD_Tab             &kp EXCLAMATION              &kp AT_SIGN                    &kp HASH               &kp DOLLAR             &kp PERCENT                                                                                                            &kp PERCENT            &kp KP_N7    &kp KP_N8      &kp KP_N9        &kp KP_PLUS   &none
+&mt TILDE GRAVE     &kp CARET                    &kp AMPERSAND                  &mt DOUBLE_QUOTES SQT  &mt SEMICOLON COLON    &mt QUESTION EQUAL                                                                                                     &kp LEFT_PARENTHESIS   &kp KP_N4    &kp KP_N5      &kp KP_N6        &kp KP_PLUS   &none
+&kp ESC             &mt LEFT_BRACKET LEFT_BRACE  &mt RIGHT_BRACE RIGHT_BRACKET  &kp LEFT_PARENTHESIS   &kp RIGHT_PARENTHESIS  &mt PIPE NON_US_BACKSLASH  &trans  &trans  &trans  &trans               &trans                   &trans                &kp RIGHT_PARENTHESIS  &kp KP_N1    &kp KP_N2      &kp KP_N3        &kp KP_ENTER  &none
+&kp K_CONTEXT_MENU  &trans                       &trans                         &trans                 &trans                                            &trans  &trans  &trans  &mt LESS_THAN COMMA  &mt GREATER_THAN PERIOD  &mt GREATER_THAN DOT                         &kp KP_N0    &kp KP_N0      &kp KP_DOT       &kp KP_ENTER  &none
             >;
         };
 
