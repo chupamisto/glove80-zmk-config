@@ -46,7 +46,7 @@
             label = "TD_LEFT_ARROW";
             #binding-cells = <0>;
             bindings =
-                <&kp LS(LEFT_ARROW)>,
+                <&mt LS(LEFT_ARROW) LEFT_ARROW>,
                 <&mt LC(LS(LEFT_ARROW)) LC(LEFT_ARROW)>;
         };
 
@@ -54,7 +54,9 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_UP_ARROW";
             #binding-cells = <0>;
-            bindings = <&kp LS(UP_ARROW)>, <&mt LC(LS(UP_ARROW)) LC(UP_ARROW)>;
+            bindings =
+                <&mt LS(UP_ARROW) UP_ARROW>,
+                <&mt LC(LS(UP_ARROW)) LC(UP_ARROW)>;
         };
 
         TD_Down_Arrow: TD_Down_Arrow {
@@ -62,7 +64,7 @@
             label = "TD_DOWN_ARROW";
             #binding-cells = <0>;
             bindings =
-                <&kp LS(DOWN_ARROW)>,
+                <&mt LS(DOWN_ARROW) DOWN_ARROW>,
                 <&mt LC(LS(DOWN_ARROW)) LC(DOWN_ARROW)>;
         };
 
@@ -71,7 +73,7 @@
             label = "TD_RIGHT_ARROW";
             #binding-cells = <0>;
             bindings =
-                <&kp LS(RIGHT_ARROW)>,
+                <&mt LS(RIGHT_ARROW) RIGHT_ARROW>,
                 <&mt LC(LS(RIGHT_ARROW)) LC(RIGHT_ARROW)>;
         };
 
@@ -447,12 +449,12 @@
 
         NavFN {
             bindings = <
-&kp PRINTSCREEN     &kp SYSREQ         &kp PAUSE_BREAK          &kp SCROLLLOCK             &kp INS                                                                                                                      &kp INSERT      &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp SYSREQ       &kp PRINTSCREEN
-&none               &none              &none                    &none                      &none                        &none                                                                                    &none  &none           &none           &none            &none            &none
-&TD_Tab             &mt LC(HOME) HOME  &mt LC(PG_UP) PG_UP      &mt LS(UP_ARROW) UP_ARROW  &mt LC(PAGE_DOWN) PAGE_DOWN  &mt LC(END) END                                                                          &none  &kp F1          &kp F2          &kp F3           &mt LA(F4) F4    &none
-&sk LEFT_WIN        &sk LCTRL          &mt LS(LEFT_ARROW) LEFT  &mt LS(DOWN) DOWN          &mt LS(RIGHT_ARROW) RIGHT    &kp LC(Y)                                                                                &none  &mt RS(F5) F5   &kp F6          &kp F7           &kp F8           &none
-&kp ESC             &kp LC(Z)          &mt LC(LS(X)) LC(X)      &kp LC(C)                  &TD_Enter                    &mt LC(LS(V)) LC(V)  &trans          &trans        &trans        &trans  &trans  &trans  &none  &kp F9          &kp F10         &kp F11          &mt LS(F12) F12  &none
-&kp K_CONTEXT_MENU  &TD_Left_Arrow     &TD_Up_Arrow             &TD_Down_Arrow             &TD_Right_arrow                                   &sk LEFT_SHIFT  &sk LEFT_ALT  &sk LEFT_GUI  &trans  &trans  &trans         &TD_Left_Arrow  &TD_Down_Arrow  &TD_Up_Arrow     &TD_Right_arrow  &kp K_CONTEXT_MENU
+&kp PRINTSCREEN     &kp SYSREQ         &kp PAUSE_BREAK      &kp SCROLLLOCK  &kp INS                                                                                                                      &kp INSERT      &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp SYSREQ       &kp PRINTSCREEN
+&none               &none              &none                &none           &none                        &none                                                                                    &none  &none           &none           &none            &none            &none
+&TD_Tab             &mt LC(HOME) HOME  &mt LC(PG_UP) PG_UP  &TD_Up_Arrow    &mt LC(PAGE_DOWN) PAGE_DOWN  &mt LC(END) END                                                                          &none  &kp F1          &kp F2          &kp F3           &mt LA(F4) F4    &none
+&sk LEFT_WIN        &sk LCTRL          &TD_Left_Arrow       &TD_Down_Arrow  &TD_Right_arrow              &kp LC(Y)                                                                                &none  &mt RS(F5) F5   &kp F6          &kp F7           &kp F8           &none
+&kp ESC             &kp LC(Z)          &mt LC(LS(X)) LC(X)  &kp LC(C)       &TD_Enter                    &mt LC(LS(V)) LC(V)  &trans          &trans        &trans        &trans  &trans  &trans  &none  &kp F9          &kp F10         &kp F11          &mt LS(F12) F12  &none
+&kp K_CONTEXT_MENU  &TD_Left_Arrow     &TD_Up_Arrow         &TD_Down_Arrow  &TD_Right_arrow                                   &sk LEFT_SHIFT  &sk LEFT_ALT  &sk LEFT_GUI  &trans  &trans  &trans         &TD_Left_Arrow  &TD_Down_Arrow  &TD_Up_Arrow     &TD_Right_arrow  &kp K_CONTEXT_MENU
             >;
         };
 
